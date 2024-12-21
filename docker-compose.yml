@@ -7,10 +7,30 @@ services:
       args:
         - DEV=true
     ports:
-      - "8000:8000"  # Uncomment this if you want to map a local port to the container
+      - "8000:8000" # Uncomment this if you want to map a local port to the container
     volumes:
-      - ./app:/app  # Correct indentation and ensure the path is relative
+      - ./app:/app # Correct indentation and ensure the path is relative
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=devdb
+      - DB_USER=user
+      - DB_PASSWORD=changeme
+    depends_on:
+      - db
     # expose:
     #   - "80"  # Expose expects a simple list of ports
+
+  db:
+    # this name is used for services or host of database in the project
+    image: postgres:13-alpine
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=changeme
+
+volumes:
+  dev-db-data:

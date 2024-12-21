@@ -25,6 +25,14 @@
         "documentation": {}
     },
     {
+        "label": "SimpleTestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -64,6 +72,24 @@
         "description": "app.app.asgi",
         "peekOfCode": "application = get_asgi_application()",
         "detail": "app.app.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "add",
+        "kind": 2,
+        "importPath": "app.app.calc",
+        "description": "app.app.calc",
+        "peekOfCode": "def add(x,y):\n    \"\"\"add the given values \"\"\"\n    return x + y\ndef substract(x,y):\n    \"\"\"substract the given value\"\"\"\n    return y - x",
+        "detail": "app.app.calc",
+        "documentation": {}
+    },
+    {
+        "label": "substract",
+        "kind": 2,
+        "importPath": "app.app.calc",
+        "description": "app.app.calc",
+        "peekOfCode": "def substract(x,y):\n    \"\"\"substract the given value\"\"\"\n    return y - x",
+        "detail": "app.app.calc",
         "documentation": {}
     },
     {
@@ -226,6 +252,15 @@
         "description": "app.app.settings",
         "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "app.app.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CalcTests",
+        "kind": 6,
+        "importPath": "app.app.tests",
+        "description": "app.app.tests",
+        "peekOfCode": "class CalcTests(SimpleTestCase):\n    \"\"\"Test the calc module \"\"\"\n    def test__add(self):\n        \"\"\"Test adding number together\"\"\"\n        res = calc.add(5,6)\n        self.assertEqual(res, 11)\n    def test__substract(self):\n        \"\"\"Substract y and x and return result\"\"\"\n        res = calc.substract(10,15)\n        self.assertEqual(res, 5)",
+        "detail": "app.app.tests",
         "documentation": {}
     },
     {
