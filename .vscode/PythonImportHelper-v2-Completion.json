@@ -250,7 +250,7 @@
         "kind": 5,
         "importPath": "app.app.settings",
         "description": "app.app.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'app.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/3.2/ref/settings/#databases\nprint(os.environ.get('DB_HOST')),\nprint(os.environ.get('DB_NAME')),\nprint(os.environ.get('DB_USER')),\nprint(os.environ.get('DB_PASSWORD')),\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',",
+        "peekOfCode": "WSGI_APPLICATION = 'app.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/3.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'HOST': os.environ.get('DB_HOST'),\n        'NAME': os.environ.get('DB_NAME'),\n        'USER': os.environ.get('DB_USER'),\n        'PASSWORD': os.environ.get('DB_PASSWORD'),",
         "detail": "app.app.settings",
         "documentation": {}
     },
