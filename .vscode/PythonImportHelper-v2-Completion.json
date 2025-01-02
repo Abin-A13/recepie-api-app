@@ -33,7 +33,7 @@
         "documentation": {}
     },
     {
-        "label": "TestCase",
+        "label": "SimpleTestCase",
         "importPath": "django.test",
         "description": "django.test",
         "isExtraImport": true,
@@ -73,11 +73,36 @@
         "documentation": {}
     },
     {
-        "label": "AppConfig",
-        "importPath": "django.apps",
-        "description": "django.apps",
+        "label": "time",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "django.apps",
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "OperationalError",
+        "importPath": "psycopg2",
+        "description": "psycopg2",
+        "isExtraImport": true,
+        "detail": "psycopg2",
+        "documentation": {}
+    },
+    {
+        "label": "OperationalError",
+        "importPath": "psycopg2",
+        "description": "psycopg2",
+        "isExtraImport": true,
+        "detail": "psycopg2",
+        "documentation": {}
+    },
+    {
+        "label": "OperationalError",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -89,11 +114,43 @@
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
         "isExtraImport": true,
-        "detail": "django.shortcuts",
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "patch",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "call_command",
+        "importPath": "django.core.management",
+        "description": "django.core.management",
+        "isExtraImport": true,
+        "detail": "django.core.management",
+        "documentation": {}
+    },
+    {
+        "label": "OperationalError",
+        "importPath": "django.db.utils",
+        "description": "django.db.utils",
+        "isExtraImport": true,
+        "detail": "django.db.utils",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
         "documentation": {}
     },
     {
@@ -164,7 +221,7 @@
         "kind": 5,
         "importPath": "app.app.settings",
         "description": "app.app.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n]",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'core'",
         "detail": "app.app.settings",
         "documentation": {}
     },
@@ -173,7 +230,7 @@
         "kind": 5,
         "importPath": "app.app.settings",
         "description": "app.app.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n]\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'core'\n]\nMIDDLEWARE = [",
         "detail": "app.app.settings",
         "documentation": {}
     },
@@ -319,6 +376,24 @@
         "description": "app.app.wsgi",
         "peekOfCode": "application = get_wsgi_application()",
         "detail": "app.app.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "Command",
+        "kind": 6,
+        "importPath": "app.core.management.commands.wait_for_db",
+        "description": "app.core.management.commands.wait_for_db",
+        "peekOfCode": "class Command(BaseCommand):\n    \"\"\"\n    Django command for wait for database\n    \"\"\"\n    def handle(self, *args, **options):\n        \"\"\"Entrypoint for Database\"\"\"\n        self.stdout.write(\"Waiting for Database...\")\n        db_up = False\n        while db_up is False:\n            try:",
+        "detail": "app.core.management.commands.wait_for_db",
+        "documentation": {}
+    },
+    {
+        "label": "CommandTests",
+        "kind": 6,
+        "importPath": "app.core.tests.test_commands",
+        "description": "app.core.tests.test_commands",
+        "peekOfCode": "class CommandTests(SimpleTestCase):\n    \"\"\"Test Commands \"\"\"\n    def test_wait_for_db_ready(self, patched_check):\n        \"\"\"\n        Test waiting for database if database ready\n        \"\"\"\n        patched_check.return_value = True\n        call_command('wait_for_db')\n        patched_check.assert_called_once_with(databases=['default'])\n    @patch('time.sleep')",
+        "detail": "app.core.tests.test_commands",
         "documentation": {}
     },
     {
