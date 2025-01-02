@@ -49,14 +49,6 @@
         "documentation": {}
     },
     {
-        "label": "admin",
-        "importPath": "django.contrib",
-        "description": "django.contrib",
-        "isExtraImport": true,
-        "detail": "django.contrib",
-        "documentation": {}
-    },
-    {
         "label": "path",
         "importPath": "django.urls",
         "description": "django.urls",
@@ -99,14 +91,6 @@
     },
     {
         "label": "OperationalError",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -176,7 +160,7 @@
         "kind": 2,
         "importPath": "app.app.calc",
         "description": "app.app.calc",
-        "peekOfCode": "def add(x,y):\n    \"\"\"add the given values \"\"\"\n    return x + y\ndef substract(x,y):\n    \"\"\"substract the given value\"\"\"\n    return y - x",
+        "peekOfCode": "def add(x, y):\n    \"\"\"add the given values \"\"\"\n    return x + y\ndef substract(x, y):\n    \"\"\"substract the given value\"\"\"\n    return y - x",
         "detail": "app.app.calc",
         "documentation": {}
     },
@@ -185,7 +169,7 @@
         "kind": 2,
         "importPath": "app.app.calc",
         "description": "app.app.calc",
-        "peekOfCode": "def substract(x,y):\n    \"\"\"substract the given value\"\"\"\n    return y - x",
+        "peekOfCode": "def substract(x, y):\n    \"\"\"substract the given value\"\"\"\n    return y - x",
         "detail": "app.app.calc",
         "documentation": {}
     },
@@ -266,7 +250,7 @@
         "kind": 5,
         "importPath": "app.app.settings",
         "description": "app.app.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'app.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/3.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'HOST': os.environ.get('DB_HOST'),\n        'NAME': os.environ.get('DB_NAME'),\n        'USER': os.environ.get('DB_USER'),\n        'DB_PASSWORD': os.environ.get('DB_PASSWORD'),",
+        "peekOfCode": "WSGI_APPLICATION = 'app.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/3.2/ref/settings/#databases\nprint(os.environ.get('DB_HOST')),\nprint(os.environ.get('DB_NAME')),\nprint(os.environ.get('DB_USER')),\nprint(os.environ.get('DB_PASSWORD')),\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',",
         "detail": "app.app.settings",
         "documentation": {}
     },
@@ -275,7 +259,7 @@
         "kind": 5,
         "importPath": "app.app.settings",
         "description": "app.app.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'HOST': os.environ.get('DB_HOST'),\n        'NAME': os.environ.get('DB_NAME'),\n        'USER': os.environ.get('DB_USER'),\n        'DB_PASSWORD': os.environ.get('DB_PASSWORD'),\n    }\n}\n# Password validation",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'HOST': os.environ.get('DB_HOST'),\n        'NAME': os.environ.get('DB_NAME'),\n        'USER': os.environ.get('DB_USER'),\n        'PASSWORD': os.environ.get('DB_PASSWORD'),\n    }\n}\n# Password validation",
         "detail": "app.app.settings",
         "documentation": {}
     },
@@ -356,7 +340,7 @@
         "kind": 6,
         "importPath": "app.app.tests",
         "description": "app.app.tests",
-        "peekOfCode": "class CalcTests(SimpleTestCase):\n    \"\"\"Test the calc module \"\"\"\n    def test__add(self):\n        \"\"\"Test adding number together\"\"\"\n        res = calc.add(5,6)\n        self.assertEqual(res, 11)\n    def test__substract(self):\n        \"\"\"Substract y and x and return result\"\"\"\n        res = calc.substract(10,15)\n        self.assertEqual(res, 5)",
+        "peekOfCode": "class CalcTests(SimpleTestCase):\n    \"\"\"Test the calc module \"\"\"\n    def test__add(self):\n        \"\"\"Test adding number together\"\"\"\n        res = calc.add(5, 6)\n        self.assertEqual(res, 11)\n    def test__substract(self):\n        \"\"\"Substract y and x and return result\"\"\"\n        res = calc.substract(10, 15)\n        self.assertEqual(res, 5)",
         "detail": "app.app.tests",
         "documentation": {}
     },

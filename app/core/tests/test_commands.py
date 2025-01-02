@@ -31,7 +31,8 @@ class CommandTests(SimpleTestCase):
         Test waiting for database if database delay
         """
         # Simulate exceptions followed by a successful call
-        patched_check.side_effect = [Psycopg2Error] * 2 + [OperationalError] * 3 + [True]
+        patched_check.side_effect = [
+            Psycopg2Error] * 2 + [OperationalError] * 3 + [True]
 
         call_command('wait_for_db')
 
@@ -40,4 +41,3 @@ class CommandTests(SimpleTestCase):
 
         # Ensure the last call was with the expected parameters
         patched_check.assert_called_with(databases=['default'])
-
